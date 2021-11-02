@@ -1,4 +1,6 @@
 import styled from 'styled-components'
+import { mobile } from 'utils/responsive'
+
 export const Container = styled.div`
     width:100vw;
     height:100vh;
@@ -17,6 +19,8 @@ export const Wrapper = styled.div`
     padding:20px;
     width:40%;
     background:#FFF;
+    ${mobile({ width: "75%" })}
+
 
 `
 export const Title = styled.h1`

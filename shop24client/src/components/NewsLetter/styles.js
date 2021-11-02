@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import { mobile } from 'utils/responsive'
 
 export const Container = styled.div`
     height:60vh;
@@ -18,6 +19,8 @@ export const Description = styled.div`
     font-size:24px;
     font-weight:300;
     margin-bottom:20px;
+    ${mobile({ textAlign: "center" })}
+
 `
 export const InputContainer = styled.div`
     width:50%;
@@ -26,6 +29,8 @@ export const InputContainer = styled.div`
     display:flex;
     justify-content:space-between;
     border:1px solid #d3d3d3;
+    ${mobile({ width: "80%" })}
+
 
 `
 export const Input = styled.input`
