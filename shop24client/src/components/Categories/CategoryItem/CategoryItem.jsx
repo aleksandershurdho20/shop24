@@ -3,7 +3,7 @@ import {useHistory} from 'react-router-dom'
 import { Container,Image,Info,Title,Button } from './styles'
 export default function CategoryItem({item}) {
     const history = useHistory()
-    const handleOnClick =()=> history.push('/categories')
+    const handleOnClick =()=> history.push('/products')
     return (
         <Container>
             <Image src={item.img}/>

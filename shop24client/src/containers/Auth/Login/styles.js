@@ -22,51 +22,53 @@ export const Wrapper = styled.div`
 
 `
 export const Title = styled.h1`
-font-size:24px;
+    font-size:24px;
 
 `
 export const Form = styled.div`
-display:flex;
-flex-direction:column;
+    display:flex;
+    flex-direction:column;
 `
 export const Input = styled.input`
-flex:1;
-min-width:40%;
-margin:10px 0px;
-padding:10px;
-border:1px solid #d3d3d3;
-outline:none;
-transition: 0.5s ease-in;
+    flex:1;
+    min-width:40%;
+    margin:10px 0px;
+    padding:10px;
+    border:1px solid #d3d3d3;
+    outline:none;
+    transition: 0.5s ease-in;
 
-&:hover{
-    border:1px solid #038787;
+    &:hover{
+        border:1px solid #038787;
 
-}
-&:focus{
-    border:1px solid #038787;
+    }
+    &:focus{
+        border:1px solid #038787;
 
-}
+    }
 
 `
 
 export const Button = styled.button`
-width:40%;
-border:none;
-padding:15px 20px;
-background:#038787;
-color:#FFF;
-cursor:pointer;
-margin-bottom:10px;
+    width:40%;
+    border:none;
+    padding:15px 20px;
+    background:#038787;
+    color:#FFF;
+    cursor:pointer;
+    margin:20px 0px;
 
 `
 export const ButtonLink = styled(Link)`
-margin:5px;
-font-size:12px;
-text-decoration:none;
-cursor:pointer;
-color:${props => props.color || '#4a4444'}
+    margin:5px;
+    font-size:12px;
+    text-decoration:none;
+    cursor:pointer;
+    color:${props => props.color || '#4a4444'}
 
 
 `
 
-export const LinkWrapper = styled.div``
+export const LinkWrapper = styled.div`
+    margin-top:10px;
+`
