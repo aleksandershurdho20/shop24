@@ -22,7 +22,6 @@ import {
     Button
     
   } from "./styles";
-  
 export default function SingleProduct() {
     return (
         <Wrapper>
