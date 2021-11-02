@@ -21,7 +21,7 @@ font-size:14px;
 cursor:pointer;
 `
 export const SearchContainer = styled.div`
-border:0.5px solid lightgray;
+border:0.5px solid #d3d3d3;
 display:flex;
 align-items:center;
 margin-left:25px;

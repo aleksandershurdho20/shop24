@@ -25,7 +25,7 @@ export const InputContainer = styled.div`
     background:#FFF;
     display:flex;
     justify-content:space-between;
-    border:1px solid lightgray;
+    border:1px solid #d3d3d3;
 
 `
 export const Input = styled.input`

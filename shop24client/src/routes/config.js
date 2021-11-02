@@ -1,5 +1,5 @@
 import Home from 'containers/Home'
-import Categories from 'containers/Categories'
+import Products from 'containers/Products'
 export default [
     {
         path: "/",
@@ -7,7 +7,7 @@ export default [
         component: Home
     },
     {
-        path: "/categories",
-        component: Categories
+        path: "/products",
+        component: Products
     }
 ]
