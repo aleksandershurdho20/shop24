@@ -3,8 +3,7 @@ const { hashPassword, comparePassword } = require('../utils/auth')
 const jwt = require('jsonwebtoken')
 const register = async (req, res) => {
     const { username, email, password, role } = req.body;
-    console.log(req, 'reqso')
-    console.log(req.body, '23213')
+
 
     try {
         const existUser = await User.findOne({ email });

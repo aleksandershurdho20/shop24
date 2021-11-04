@@ -13,10 +13,8 @@ const createCart = async (req, res) => {
 const getUserCart = async (req, res) => {
     try {
         const id = req.params.id
-        await Cart.findOne({ _id: id }).populate('user', '_id username').populate('products').exec((err, results) => {
-
-            res.json({ cart: results })
-        })
+        const cart = await Cart.findOne({ _id: id }).populate('user', '_id username').populate('products.product').exec()
+        res.json({ cart })
     } catch (error) {
         res.status(500).send("Server error");
 
@@ -45,6 +43,7 @@ const deleteCart = async (req, res) => {
 
     }
 }
+
 module.exports = {
     createCart,
     getUserCart,
