@@ -11,7 +11,7 @@ export default [
         component: Home
     },
     {
-        path: "/products",
+        path: "/products/:name",
         component: Products
     },
     {

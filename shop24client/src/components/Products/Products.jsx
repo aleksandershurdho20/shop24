@@ -1,8 +1,8 @@
 import React from 'react'
-import {products} from 'utils/products'
+// import {products} from 'utils/products'
 import Product from './Product'
 import {Container} from './style'
-export default function Products() {
+export default function Products({products}) {
     return (
         <Container>
             {products.map((item) => (

@@ -8,7 +8,7 @@ router.post('/create/product', authorize, createProduct)
 router.put('/update/product/:id', authorize, updateProduct)
 router.get('/product/:id', authorize, getProduct)
 router.delete('/product/:id', authorize, deleteProduct)
-router.get('/products', authorize, getAllProducts)
-router.get('/products/categories', authorize, filterProducts)
+router.get('/products', getAllProducts)
+router.get('/products/categories', filterProducts)
 
 module.exports = router
