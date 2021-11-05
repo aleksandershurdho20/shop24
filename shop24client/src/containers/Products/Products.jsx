@@ -5,15 +5,37 @@ import colors from 'utils/FIlterColors'
 import sizes from 'utils/FIlterSizes'
 import Product from 'components/Products'
 import { useLocation } from "react-router";
-import axios from 'axios'
+import { apiInstance } from 'utils/api'
+
 export default function Products() {
     const location = useLocation();
     const [products,setProducts]=useState([])
     const category = location.pathname.split("/")[2]
+    const [filters,setFilters]=useState("")
     useEffect(()=>{
-        const BASE_URL = `http://localhost:5000/api/products/categories/?category=${category}`
-        axios.get(BASE_URL).then(res =>setProducts(res.data.products))
-    },[])
+        let url=`products/categories/?category=${category}`;
+        if(category.startsWith("New")){
+            url = 'products?new=true'
+        }
+        else{
+            url=`products/categories/?category=${category}`
+        }
+    
+        apiInstance.get(url).then(res =>setProducts(res.data.products))
+    },[category])
+
+
+    const handleFilterChange = (e) =>{
+        setFilters(e.target.value)
+    }
+    useEffect(()=>{
+        const filteredArr = [...products].filter(el => {
+            return Object.values(el).includes(filters)
+        })
+        setProducts(filteredArr)
+    },[filters])
+
+
     return (
         <Container>
          <Navbar/>
@@ -21,19 +43,19 @@ export default function Products() {
          <FilterContainer>
             <Filter>
                 <FilterText>Filter Products :</FilterText>
-                <Select>
+                <Select onChange={handleFilterChange}>
                     {colors.map((el,index) => <Option value={el.value} key={index}>{el.label}</Option>)}
                 </Select>
-                <Select>
+                <Select onChange={handleFilterChange}>
                     {sizes.map((el,index) => <Option value={el.value} key={index}>{el.label}</Option>)}
                 </Select>
             </Filter>
             <Filter>
             <FilterText>Sort Products :</FilterText>
-                <Select>
-                    <Option selected>Newest</Option>
-                    <Option selected>Price (asc)</Option>
-                    <Option selected>Price (desc)</Option>
+                <Select onChange={handleFilterChange}>
+                    <Option >Newest</Option>
+                    <Option >Price (asc)</Option>
+                    <Option >Price (desc)</Option>
 
                 </Select>
             </Filter>

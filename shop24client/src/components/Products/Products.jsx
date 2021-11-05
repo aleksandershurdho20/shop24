@@ -5,7 +5,7 @@ import {Container} from './style'
 export default function Products({products}) {
     return (
         <Container>
-            {products.map((item) => (
+            {products&&products.map((item) => (
             <Product item={item} key={item.id} />
             ))}
       </Container>

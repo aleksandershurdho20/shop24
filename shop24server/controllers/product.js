@@ -57,13 +57,22 @@ const getAllProducts = async (req, res) => {
 
 const filterProducts = async (req, res) => {
     try {
+        let products;
         const category = req.query.category
-        const categories = await Product.find({
-            categories: {
-                $in: [category]
-            }
-        })
-        res.json({ categories })
+        const newProducts = req.query.new;
+        if (category) {
+            products = await Product.find({
+                categories: {
+                    $in: [category]
+                }
+            })
+        }
+        else if (newProducts) {
+            products = await Product.find().sort({ createdAt: -1 }).limit(1);
+
+        }
+
+        res.json({ products })
     } catch (error) {
         res.status(500).send("Server error");
 
