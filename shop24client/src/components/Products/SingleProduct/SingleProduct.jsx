@@ -22,27 +22,23 @@ import {
     Button
     
   } from "./styles";
-export default function SingleProduct() {
+export default function SingleProduct({data}) {
     return (
         <Wrapper>
             <ImageContainer>
-                <Image src="https://i.ibb.co/S6qMxwr/jean.jpg" />
+                <Image src={data.img}/>
 
             </ImageContainer>
             <InfoContainer>
-                    <Title>Denim Jumpsuit</Title>
+                    <Title>{data.title}</Title>
                     <Description>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec
-                        venenatis, dolor in finibus malesuada, lectus ipsum porta nunc, at
-                        iaculis arcu nisi sed mauris. Nulla fermentum vestibulum ex, eget
-                        tristique tortor pretium ut. Curabitur elit justo, consequat id
-                        condimentum ac, volutpat ornare.
+                        {data.description}
                     </Description>
                     <Price>$ 20</Price>
                     <FilterContainer>
                         <Filter>
                             <FilterTitle>Color</FilterTitle>
-                            <FilterColor color="black"/>
+                            <FilterColor color={data.color}/>
                             <FilterColor color="darkblue"/>
                             <FilterColor color="gray"/>
 
@@ -51,11 +47,12 @@ export default function SingleProduct() {
                         <Filter>
                             <FilterTitle>Size</FilterTitle>
                             <FilterSize>
-                                <FilterSizeOption>A</FilterSizeOption>
+                                <FilterSizeOption value={data.size}>{data.size}</FilterSizeOption>
+                                {/* <FilterSizeOption>A</FilterSizeOption>
                                 <FilterSizeOption>b</FilterSizeOption>
                                 <FilterSizeOption>c</FilterSizeOption>
                                 <FilterSizeOption>d</FilterSizeOption>
-                                <FilterSizeOption>e</FilterSizeOption>
+                                <FilterSizeOption>e</FilterSizeOption> */}
 
                             </FilterSize>
 

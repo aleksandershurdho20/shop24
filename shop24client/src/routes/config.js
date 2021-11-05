@@ -15,7 +15,7 @@ export default [
         component: Products
     },
     {
-        path: "/product",
+        path: "/product/:id",
         component: SingleProduct
     },
     {

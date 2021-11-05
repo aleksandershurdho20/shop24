@@ -8,28 +8,30 @@ import Link from '@mui/material/Link';
 import Stack from '@mui/material/Stack';
 import NavigateNextIcon from '@mui/icons-material/NavigateNext';
 
-export default function SingleProduct() {
-    const breadcrumbs = [
-        <Link underline="hover" key="1" color="inherit" href="/" >
+export default function SingleProduct(props) {
+  const data = props.location.state
+
+      const breadcrumbs = [
+        <Link underline="hover" key="1" color="inherit" to="/" >
           Home
         </Link>,
         <Link
           underline="hover"
           key="2"
           color="inherit"
-          href="/products"
+          to="/products/new"
         >
           Products
         </Link>,
         <Typography key="3" color="text.primary">
-          Breadcrumb
+          {data.title}
         </Typography>,
       ];
     return (
         <div>
             <Navbar/>
             <BreadCrumb breadcrumbs={breadcrumbs}/>
-            <SingleProductData/>
+            <SingleProductData data={data}/>
         </div>
     )
 }
