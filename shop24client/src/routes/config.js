@@ -4,6 +4,7 @@ import SingleProduct from 'containers/Products/SingleProduct'
 import Login from 'containers/Auth/Login'
 import SignUp from 'containers/Auth/SignUp'
 import Cart from 'containers/Cart'
+import NotFound from 'containers/NotFound'
 export default [
     {
         path: "/",
@@ -29,5 +30,9 @@ export default [
     {
         path: '/cart',
         component: Cart
+    },
+    {
+        path: "*",
+        component: NotFound
     }
 ]
