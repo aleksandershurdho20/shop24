@@ -4,11 +4,15 @@ import { Container ,Wrapper,Left,Right,Center,Language,SearchContainer,Input,Log
 import Badge from '@mui/material/Badge';
 import Annoucement from 'components/Annoucement'
 import { useHistory } from 'react-router';
+import { useSelector } from "react-redux";
+
 export default function Navbar() {
+    
     const history = useHistory()
     const handleRouteChange = (name) =>{
         history.push(name)
     }
+    const quantity = useSelector(state => state.CartReducer.quantity)
     return (
 
         <>
@@ -29,7 +33,7 @@ export default function Navbar() {
                             <MenuItem onClick={()=>handleRouteChange('/signup')}>REGISTER</MenuItem>
                             <MenuItem onClick={()=>handleRouteChange('/login')}>SIGN IN</MenuItem>
                             <MenuItem>
-                            <Badge badgeContent={4} color="primary">
+                            <Badge badgeContent={quantity} color="primary" onClick={()=>handleRouteChange('/cart')}>
                                 <ShoppingCartOutlined />
                             </Badge>
                             </MenuItem>

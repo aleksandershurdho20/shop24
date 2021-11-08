@@ -167,5 +167,33 @@ cursor:pointer;
 `
 
 
+export const Empty = styled.div`
+display:flex;
+justify-content:center;
+align-items:center;
+flex-direction:column;
+width:100%;
 
 
+
+`
+
+
+export const ImageEmpty = styled.img`
+
+
+width: 30%;
+${mobile({ width: "100%" })}
+
+`
+
+
+export const EmptyDescripton = styled.p`
+opacity: 0.6;
+margin-bottom: 50px;
+
+
+}
+
+
+`

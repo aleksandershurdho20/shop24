@@ -1,7 +1,8 @@
 
 
 import { Add,Remove } from '@mui/icons-material';
-import React from 'react'
+import React,{useState} from 'react'
+import { useDispatch } from 'react-redux';
 import {
     Wrapper,
     ImageContainer,
@@ -23,6 +24,23 @@ import {
     
   } from "./styles";
 export default function SingleProduct({data}) {
+    const [quantity,setQuantity]=useState(1)
+    const dispatch = useDispatch()
+    const handleQuantity = (type) =>{
+        if(type == 'decrement'){
+          quantity >1 && setQuantity(quantity -1)
+        }
+        else{
+          setQuantity(quantity +1)
+
+        }
+    }
+    const handleCart = () =>{
+        dispatch({
+            type:'ADD_TO_CART',
+            payload:{...data,quantity}
+        })
+    }
     return (
         <Wrapper>
             <ImageContainer>
@@ -61,11 +79,12 @@ export default function SingleProduct({data}) {
                     </FilterContainer>
                     <AddContainer>
                         <AmountContainer>
-                            <Remove/>
-                            <Amount>1</Amount>
-                            <Add/>
+                            <Remove onClick={()=>handleQuantity("decrement")}/>
+                            <Amount>{quantity}</Amount>
+                            <Add onClick={()=>handleQuantity("increment")}/>
+                                
                         </AmountContainer>
-                        <Button>ADD TO CART</Button>
+                        <Button onClick={handleCart}>ADD TO CART</Button>
                     </AddContainer>
             </InfoContainer>
 
