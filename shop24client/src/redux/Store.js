@@ -1,10 +1,12 @@
 import { combineReducers, applyMiddleware, createStore } from 'redux'
 import { composeWithDevTools } from 'redux-devtools-extension'
 import CartReducer from './reducers/cartReducer'
+import AuthReducer from './reducers/authReducer'
 import thunk from 'redux-thunk'
 
 const reducer = combineReducers({
-    CartReducer
+    CartReducer,
+    AuthReducer
 })
 
 const initialState = {}

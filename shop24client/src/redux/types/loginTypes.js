@@ -1,0 +1,5 @@
+export const LOGIN = 'LOGIN'
+export const START_LOGIN = 'START_LOGIN'
+export const LOGIN_SUCCESS = 'START_LOGIN'
+export const LOGIN_FAILTURE = 'LOGIN_FAILTURE'
+export const STOP_LOGIN = 'START_LOGIN'
