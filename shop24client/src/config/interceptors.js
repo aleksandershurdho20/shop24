@@ -1,8 +1,8 @@
 export function interceptorRequest(request) {
-    const isLoggedIn = localStorage.getItem("token");
+    const isLoggedIn = localStorage.getItem("user");
 
     if (isLoggedIn) {
-        request.headers.common.Authorization = `Bearer ${isLoggedIn}`;
+        request.headers.common.Authorization = `Bearer ${isLoggedIn.token}`;
     }
 
     return request;

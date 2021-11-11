@@ -5,6 +5,7 @@ import Login from 'containers/Auth/Login'
 import SignUp from 'containers/Auth/SignUp'
 import Cart from 'containers/Cart'
 import NotFound from 'containers/NotFound'
+import DashboardLayout from 'components/Dashboard/DAshboard'
 export default [
     {
         path: "/",
@@ -30,6 +31,10 @@ export default [
     {
         path: '/cart',
         component: Cart
+    },
+    {
+        path: '/app',
+        component: DashboardLayout
     },
     {
         path: "*",

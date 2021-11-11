@@ -1,0 +1,40 @@
+version :"3.9"
+services:
+  api:
+    restart:always
+    build:
+    context:./shop24server
+    dockerfile:Dockerfile.dev
+    container_name:shop24
+    volumes:
+    - /app/node_modules
+    - ./shop24server:/app
+    ports:
+      -5000:5000
+    depends_on:
+      -mongodb
+    enviroment:
+    NODE_ENV:${NODE_ENV}
+    MONGO_URI:${DATABASE}
+    networks:
+      - shop24
+      mongodb:
+        image:mongo
+        restart:always
+        ports:
+          -27017:27017
+          enviroment:
+            MONGO_INITDB_ROOT_USERNAME:${MONGO_ROOT_USERNAME}
+            MONGO_INITDB_ROOT_PASSWORD:${MONGO_ROOT_PASSWORD}
+         volumes:
+          - mongodb-data:/data/db
+          networks:
+          - shop24   
+  mongo-express:
+    image:mongo-express
+    depends_on:
+      -mongodb
+      ports:
+        -8081:8081
+        enviroment:
+          
