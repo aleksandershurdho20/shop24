@@ -1,7 +1,11 @@
-import React from "react";
+import React, { useEffect, useMemo } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import routes from "./config";
+import PrivateRoutes from 'routes/privateRoutesConfig'
+import Dashboard from 'components/DashboardLayout/DAshboard'
 export default function Routes() {
+    const showSidebarAfterLogin = PrivateRoutes.every(route => route.path === window.location.pathname)
+
     return (
         <Router>
             <Switch>
@@ -14,6 +18,7 @@ export default function Routes() {
                     />
                 ))}
             </Switch>
+            {showSidebarAfterLogin && <Dashboard />}
         </Router>
     );
 }

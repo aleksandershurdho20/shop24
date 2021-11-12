@@ -3,9 +3,9 @@ import { Icon } from '@iconify/react';
 import { alpha, styled } from '@mui/material/styles';
 import { Box, Stack, AppBar, Toolbar, IconButton } from '@mui/material';
 
-import Searchbar from 'components/Dashboard/SearchBar';
-import AccountPopover from 'components/Dashboard/AccountPopover';
-import NotificationsPopover from 'components/Dashboard/NotificationPopover';
+import Searchbar from 'components/DashboardLayout/SearchBar';
+import AccountPopover from 'components/DashboardLayout/AccountPopover';
+import NotificationsPopover from 'components/DashboardLayout/NotificationPopover';
 import MenuIcon from '@mui/icons-material/Menu';
 
 const DRAWER_WIDTH = 280;

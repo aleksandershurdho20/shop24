@@ -54,15 +54,15 @@ function NavItem({ item, active }) {
   const isActiveRoot = active(item.path);
   const { title, path, icon, info, children } = item;
   const [open, setOpen] = useState(isActiveRoot);
-
+  console.log({theme})
   const handleOpen = () => {
     setOpen((prev) => !prev);
   };
 
   const activeRootStyle = {
-    color: 'primary.main',
+    color: '#008080',
     fontWeight: 'fontWeightMedium',
-    bgcolor: alpha(theme.palette.primary.main, theme.palette.action.selectedOpacity),
+    bgcolor: 'rgba(0,128,128,0.08)',
     '&:before': { display: 'block' }
   };
 

@@ -4,8 +4,8 @@ import { useState } from 'react';
 import { styled } from '@mui/material/styles';
 import DashboardNavbar from './DashboardNavbar.jsx';
 import DashboardSidebar from './DashboardSidebar';
-
-
+import PrivateRoutes from 'routes/privateRoutes.js';
+import routes from 'routes/privateRoutesConfig'
 const APP_BAR_MOBILE = 64;
 const APP_BAR_DESKTOP = 92;
 
@@ -29,6 +29,7 @@ const MainStyle = styled('div')(({ theme }) => ({
 }));
 
 
+
 export default function DashboardLayout() {
   const [open, setOpen] = useState(false);
 
@@ -37,7 +38,8 @@ export default function DashboardLayout() {
       <DashboardNavbar onOpenSidebar={() => setOpen(true)} />
       <DashboardSidebar isOpenSidebar={open} onCloseSidebar={() => setOpen(false)} />
       <MainStyle>
-        
+        {routes.map((el,index) => <PrivateRoutes path={el.path} component ={el.component} key={index}/> )}
+
       </MainStyle>
     </RootStyle>
   );

@@ -1,10 +1,8 @@
 import PropTypes from 'prop-types';
 import { useEffect } from 'react';
 import { Link as RouterLink, useLocation } from 'react-router-dom';
-// material
 import { styled } from '@mui/material/styles';
 import { Box, Link, Button, Drawer, Typography, Avatar, Stack } from '@mui/material';
-// components
 import NavSection from 'components/NavSection';
 import MHidden from 'components/Mhidden';
 //
@@ -28,7 +26,6 @@ const AccountStyle = styled('div')(({ theme }) => ({
   backgroundColor: 'rgb(244, 246, 248)'
 }));
 
-// ----------------------------------------------------------------------
 
 DashboardSidebar.propTypes = {
   isOpenSidebar: PropTypes.bool,
@@ -42,7 +39,6 @@ export default function DashboardSidebar({ isOpenSidebar, onCloseSidebar }) {
     if (isOpenSidebar) {
       onCloseSidebar();
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [pathname]);
 
 
@@ -52,12 +48,7 @@ export default function DashboardSidebar({ isOpenSidebar, onCloseSidebar }) {
     role:'sdsd'
   }
   const renderContent = (
-    // <Scrollbar
-    //   sx={{
-    //     height: '100%',
-    //     '& .simplebar-content': { height: '100%', display: 'flex', flexDirection: 'column' }
-    //   }}
-    // >
+
    <>
       <Box sx={{ px: 2.5, py: 3 }}>
         <Box component={RouterLink} to="/" sx={{ display: 'inline-flex' }}>
