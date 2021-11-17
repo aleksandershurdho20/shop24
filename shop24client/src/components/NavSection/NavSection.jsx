@@ -2,8 +2,8 @@ import { useState } from 'react';
 import PropTypes from 'prop-types';
 import { Icon } from '@iconify/react';
 import { NavLink as RouterLink, matchPath, useLocation } from 'react-router-dom';
-// import arrowIosForwardFill from '@iconify/icons-eva/arrow-ios-forward-fill';
-// import arrowIosDownwardFill from '@iconify/icons-eva/arrow-ios-downward-fill';
+import arrowIosForwardFill from '@iconify/icons-eva/arrow-ios-forward-fill';
+import arrowIosDownwardFill from '@iconify/icons-eva/arrow-ios-downward-fill';
 // material
 import { alpha, useTheme, styled } from '@mui/material/styles';
 import { Box, List, Collapse, ListItemText, ListItemIcon, ListItemButton } from '@mui/material';
@@ -85,7 +85,7 @@ function NavItem({ item, active }) {
           {info && info}
           <Box
             component={Icon}
-            // icon={open ? arrowIosDownwardFill : arrowIosForwardFill}
+            icon={open ? arrowIosDownwardFill : arrowIosForwardFill}
             sx={{ width: 16, height: 16, ml: 1 }}
           />
         </ListItemStyle>
@@ -156,7 +156,7 @@ NavSection.propTypes = {
 export default function NavSection({ navConfig, ...other }) {
   const { pathname } = useLocation();
   const match = (path) => (path ? !!matchPath({ path, end: false }, pathname) : false);
-
+  
   return (
     <Box {...other}>
       <List disablePadding>

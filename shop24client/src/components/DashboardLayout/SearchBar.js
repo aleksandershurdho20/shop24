@@ -1,6 +1,6 @@
 import { Icon } from '@iconify/react';
 import { useState } from 'react';
-// import searchFill from '@iconify/icons-eva/search-fill';
+import searchFill from '@iconify/icons-eva/search-fill';
 // material
 import { styled, alpha } from '@mui/material/styles';
 import {
@@ -56,7 +56,7 @@ export default function Searchbar() {
             <div>
                 {!isOpen && (
                     <IconButton onClick={handleOpen}>
-                        {/* <Icon icon={searchFill} width={20} height={20} /> */}
+                        <Icon icon={searchFill} width={20} height={20} />
                     </IconButton>
                 )}
 
@@ -71,7 +71,7 @@ export default function Searchbar() {
                                 <InputAdornment position="start">
                                     <Box
                                         component={Icon}
-                                        // icon={searchFill}
+                                        icon={searchFill}
                                         sx={{ color: 'text.disabled', width: 20, height: 20 }}
                                     />
                                 </InputAdornment>
