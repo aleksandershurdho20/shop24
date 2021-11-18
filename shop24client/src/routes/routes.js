@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import routes from "./config";
 import PrivateRoutes from 'routes/privateRoutesConfig'
 import Dashboard from 'components/DashboardLayout/DAshboard'
+import PrivateRoute from "./privateRoutes";
 export default function Routes() {
     const showSidebarAfterLogin = PrivateRoutes.every(route => route.path === window.location.pathname)
 
@@ -17,6 +18,7 @@ export default function Routes() {
                         key={index}
                     />
                 ))}
+
             </Switch>
             {showSidebarAfterLogin && <Dashboard />}
         </Router>

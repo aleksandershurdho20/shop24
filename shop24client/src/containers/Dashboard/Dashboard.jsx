@@ -3,6 +3,10 @@ import { apiInstance } from "utils/api";
 import Chart from "common/Charts";
 import months from "utils/months";
 import Statistics from "components/Statistics";
+// import { DataGrid,GridToolbar } from "@material-ui/data-grid";
+import MoreButton from "common/MoreButton";
+
+
 export default function Dashboard() {
   const [statistics, setStatistics] = useState([]);
   const Months = useMemo(() => months, []);
@@ -20,15 +24,17 @@ export default function Dashboard() {
       .catch((err) => console.log("err", err));
   }, [Months]);
 
+
+  
   return (
-    <div>
-        <Statistics/>
+    <>
+    <Statistics/>
       <Chart
         data={statistics}
         title="User Analytics"
         grid
         dataKey="Active User"
       />
-    </div>
+    </>
   );
 }

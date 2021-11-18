@@ -5,8 +5,8 @@ export default function TableHead({ columns }) {
   return (
     <Grid container>
       {columns.map((el, index) => (
-        <Grid item key={index}>
-          {el.tilte}
+        <Grid item md key={index}>
+          {el.title}
         </Grid>
       ))}
     </Grid>
