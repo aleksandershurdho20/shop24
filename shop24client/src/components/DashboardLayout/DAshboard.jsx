@@ -38,7 +38,7 @@ export default function DashboardLayout() {
       <DashboardNavbar onOpenSidebar={() => setOpen(true)} />
       <DashboardSidebar isOpenSidebar={open} onCloseSidebar={() => setOpen(false)} />
       <MainStyle>
-        {routes.map((el,index) => <PrivateRoutes path={el.path} component ={el.component} key={index}/> )}
+        {routes.map((el,index) => <PrivateRoutes exact path={el.path} component={el.component} key={index}/> )}
 
       </MainStyle>
     </RootStyle>
