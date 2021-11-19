@@ -23,5 +23,22 @@ export default [
     {
         value: 'green',
         label: 'Green'
-    }
+    },
+    {
+        value: 'gray',
+        label: 'Gray'
+    },
+    {
+        value: 'brown',
+        label: 'Brown'
+    },
+    {
+        value: 'pink',
+        label: 'Pink'
+    },
+    {
+        value: 'orange',
+        label: 'Orange'
+    },
+
 ]
