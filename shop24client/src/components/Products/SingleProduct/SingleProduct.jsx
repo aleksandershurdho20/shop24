@@ -51,7 +51,7 @@ export default function SingleProduct({data}) {
                     <Description>
                         {data.description}
                     </Description>
-                    <Price>$ 20</Price>
+                    <Price>{data.price}</Price>
                     <FilterContainer>
                         <Filter>
                             <FilterTitle>Color</FilterTitle>
