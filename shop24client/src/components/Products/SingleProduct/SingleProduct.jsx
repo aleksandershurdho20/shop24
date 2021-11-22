@@ -44,8 +44,7 @@ export default function SingleProduct({data}) {
     return (
         <Wrapper>
             <ImageContainer>
-                <Image src={data.img}/>
-
+                <Image src={data.image}/>
             </ImageContainer>
             <InfoContainer>
                     <Title>{data.title}</Title>
@@ -56,9 +55,8 @@ export default function SingleProduct({data}) {
                     <FilterContainer>
                         <Filter>
                             <FilterTitle>Color</FilterTitle>
-                            <FilterColor color={data.color}/>
-                            <FilterColor color="darkblue"/>
-                            <FilterColor color="gray"/>
+                            {data.color.length > 0 ? data.color.map(el => <FilterColor color ={el}/>): <FilterColor color ={data.color[0]}/>}
+                       
 
 
                         </Filter>

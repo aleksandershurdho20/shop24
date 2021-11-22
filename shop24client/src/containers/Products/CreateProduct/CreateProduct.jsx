@@ -11,7 +11,8 @@ import FIlterColors from 'utils/FIlterColors.js';
 import Button from '@mui/material/Button';
 import { apiInstance } from 'utils/api.js';
 import toast from 'react-hot-toast';
-
+import {getStorage,ref,uploadBytesResumable,getDownloadURL} from 'firebase/storage'
+import app from 'config/firebase'
 export default function CreateProduct() {
 const [product,setProduct]=useState({
     title:'',
@@ -25,6 +26,8 @@ const [product,setProduct]=useState({
 
 
 })
+const [file, setFile] = useState(null);
+
 const handleChange = (e) =>{
     const {target: { value,name },} = e;
     setProduct({...product,[name]:value}) 
@@ -53,10 +56,54 @@ const categories = [{
 },
 ]
 
+const handleClick = () => {
+    const fileName = new Date().getTime() + file.name;
+    const storage = getStorage(app);
+    const storageRef = ref(storage, fileName);
+    const uploadTask = uploadBytesResumable(storageRef, file);
+
+    // Register three observers:
+    // 1. 'state_changed' observer, called any time the state changes
+    // 2. Error observer, called on failure
+    // 3. Completion observer, called on successful completion
+    uploadTask.on(
+      "state_changed",
+      (snapshot) => {
+        // Observe state change events such as progress, pause, and resume
+        // Get task progress, including the number of bytes uploaded and the total number of bytes to be uploaded
+        const progress =
+          (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+        console.log("Upload is " + progress + "% done");
+        switch (snapshot.state) {
+          case "paused":
+            console.log("Upload is paused");
+            break;
+          case "running":
+            console.log("Upload is running");
+            break;
+          default:
+        }
+      },
+      (error) => {
+        // Handle unsuccessful uploads
+      },
+      () => {
+        // Handle successful uploads on complete
+        // For instance, get the download URL: https://firebasestorage.googleapis.com/...
+        getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
+            console.log({downloadURL})
+            setProduct({...product,image:downloadURL})
+        });
+      }
+    );
+  };
 const handleSubmit = (e) =>{
     console.log({product})
+    handleClick()
     apiInstance.post('/create/product',product).then(()=>toast.success('Product Created Sucessfully!')).catch(err => toast.error("An errorr happened! Please try again!"))
 }
+
+
     return (
         <Grid container spacing={2}>
             <Grid item md={8}>
@@ -78,7 +125,12 @@ const handleSubmit = (e) =>{
                             <Input variant="outlined" value={product.price} name="price" onChange={handleChange} placeholder="Price" label ="Price" type="number" fullWidth />
                         </Grid>
                         <Grid item md={12}>
-                            <DropzoneArea  accept="image/*" value = {product.image} onDrop={(value) => setProduct({...product,image:value[0]?.name})}/>
+                        <input
+            type="file"
+            id="file"
+            onChange={(e) => setFile(e.target.files[0])}
+          />
+                            {/* <DropzoneArea  accept="image/*"  filesLimit ="1" onChange={(value)=>handleUpload(value)}/> */}
                         </Grid>
                     </Grid>
 

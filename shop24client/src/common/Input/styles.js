@@ -8,6 +8,16 @@ export const TextInput = styled(TextField)`
  
 
 }
+.MuiOutlinedInput-root{
+    border-radius: 8px;
+    border-color: rgba(145, 158, 171, 0.32);
+    outline:none;
+    .Mui-focused fieldset{
+        border-color:#038787;
+
+    }
+
+}
 
 .MuiOutlinedInput-notchedOutline{
     border-color: rgba(145, 158, 171, 0.32);
