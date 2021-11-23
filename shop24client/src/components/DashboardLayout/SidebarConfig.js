@@ -24,8 +24,8 @@ const sidebarConfig = [
 
     },
     {
-        title: 'product',
-        path: '/app/products/create',
+        title: 'products',
+        path: '/app/products',
         icon: getIcon(shoppingBagFill),
 
 
