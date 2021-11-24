@@ -5,9 +5,7 @@ import pieChart2Fill from '@iconify/icons-eva/pie-chart-2-fill';
 import peopleFill from '@iconify/icons-eva/people-fill';
 import shoppingBagFill from '@iconify/icons-eva/shopping-bag-fill';
 import fileTextFill from '@iconify/icons-eva/file-text-fill';
-import lockFill from '@iconify/icons-eva/lock-fill';
-import personAddFill from '@iconify/icons-eva/person-add-fill';
-import alertTriangleFill from '@iconify/icons-eva/alert-triangle-fill';
+import tags from '@iconify/icons-eva/pricetags-fill';
 const getIcon = (name) => <Icon icon={name} width={22} height={22} />;
 
 const sidebarConfig = [
@@ -31,9 +29,9 @@ const sidebarConfig = [
 
     },
     {
-        title: 'blog',
-        path: '/dashboard/blog',
-        icon: getIcon(fileTextFill)
+        title: 'tags',
+        path: '/app/tags',
+        icon: getIcon(tags)
 
     },
     {

@@ -15,7 +15,7 @@ export default function GetAllProducts() {
   const [products,setProducts]=useState([])
   const [loading,setLoading]=useState(true)
   const [query,setQuery]=useState("")
-  useDebounce(query,400)
+  const sadsadsa = useDebounce(query,400)
   useEffect(()=>{
 
 
@@ -104,13 +104,16 @@ export default function GetAllProducts() {
           },
         },
       ];
+      const handleChange = (e) =>{
+        setQuery(e.target.value)
+      }
     return (
         <div className="userList">
             <BoxTitle
             title="Products"
             showInput={true}
             buttonTitle=" Create Product"
-            onChange={(e)=>setQuery(e.target.value)}
+            onChange={handleChange}
             path="products/create"
             />
           
