@@ -1,11 +1,10 @@
 import React from 'react'
-import TableHead from './TableHead'
-import TableBody from './TableBody'
-export default function Table({columns,data}) {
+import { DataGrid } from '@mui/x-data-grid';
+
+export default function Table(props) {
     return (
         <>
-            <TableHead columns={columns}/>
-            <TableBody data={data}/>
+            <DataGrid {...props}/>
         </>
     )
 }

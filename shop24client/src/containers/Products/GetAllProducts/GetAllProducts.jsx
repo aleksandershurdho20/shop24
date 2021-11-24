@@ -7,13 +7,15 @@ import Button from '@mui/material/Button';
 import { apiInstance } from 'utils/api'
 import Loader from 'common/Loader';
 import { useHistory } from 'react-router';
-import BreadCrumb from 'components/BreadCrumb/BreadCrumb';
 import toast from 'react-hot-toast';
-
+import Table from 'common/Table';
+import BoxTitle from 'common/BoxTitle';
+import useDebounce from 'hooks/useDebounce'
 export default function GetAllProducts() {
   const [products,setProducts]=useState([])
   const [loading,setLoading]=useState(true)
-  const history = useHistory()
+  const [query,setQuery]=useState("")
+  useDebounce(query,400)
   useEffect(()=>{
 
 
@@ -104,11 +106,15 @@ export default function GetAllProducts() {
       ];
     return (
         <div className="userList">
-
-            <Button  size="medium" onClick={()=>history.push('/app/products/create')}>
-                Create Product
-            </Button>
-            {loading ? <Loader/> :      <DataGrid
+            <BoxTitle
+            title="Products"
+            showInput={true}
+            buttonTitle=" Create Product"
+            onChange={(e)=>setQuery(e.target.value)}
+            path="products/create"
+            />
+          
+            {loading ? <Loader/> :      <Table
                 rows={products}
                 disableSelectionOnClick
                 columns={columns}
@@ -119,7 +125,7 @@ export default function GetAllProducts() {
                 //     Toolbar: GridToolbar,
                 //   }}
                 />}
-        
+          {console.log({query})}
         </div>
     )
 }
