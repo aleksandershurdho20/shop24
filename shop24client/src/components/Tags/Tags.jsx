@@ -3,7 +3,9 @@ import Grid from "@mui/material/Grid";
 import { PaperWrapper } from "./styles";
 import Input from "common/Input";
 import { Button } from "@mui/material";
-export default function Tags({ tags, handleChange, title,name }) {
+import IconButton from '@mui/material/IconButton';
+import DeleteIcon from '@mui/icons-material/Delete';
+export default function Tags({ tags, handleChange, title,name,handleAddMore,handleRemove,handleSubmit }) {
   return (
     <Grid
       container
@@ -19,11 +21,16 @@ export default function Tags({ tags, handleChange, title,name }) {
                 <Grid container key={index}>
                   <Grid item>
                     <Input value={el.title} name={name} onChange={(e)=>handleChange(e,index)}/>
+                     {index !=0 && <IconButton aria-label="delete" size="large">
+                        <DeleteIcon fontSize="inherit" onClick={(i)=>handleRemove(i,index)} />
+                      </IconButton>}
                   </Grid>
                 </Grid>
               ))
             : "No tags"}
-            <Button>{title}</Button>
+            <Button onClick={handleAddMore}>Add more</Button>
+
+            <Button onClick={handleSubmit}>{title}</Button>
         </PaperWrapper>
       </Grid>
     </Grid>

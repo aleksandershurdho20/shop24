@@ -1,4 +1,5 @@
 const mongoose = require('mongoose')
+const { ObjectId } = mongoose.Schema;
 
 
 const productSchema = new mongoose.Schema({
@@ -35,6 +36,10 @@ const productSchema = new mongoose.Schema({
     inStock: {
         type: Boolean,
         default: true
+    },
+    tags: {
+        type: [ObjectId],
+        ref: "Tags"
     }
 }, {
     timestamps: true

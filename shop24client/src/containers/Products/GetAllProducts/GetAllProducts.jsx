@@ -128,7 +128,6 @@ export default function GetAllProducts() {
                 //     Toolbar: GridToolbar,
                 //   }}
                 />}
-          {console.log({query})}
         </div>
     )
 }
