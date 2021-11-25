@@ -5,9 +5,12 @@ import { apiInstance } from "utils/api";
 import Loader from "common/Loader";
 import Chip from "@material-ui/core/Chip";
 import moment from "moment";
+import MoreButton from "common/MoreButton/MoreButton";
+import { useHistory } from "react-router";
 export default function Tags() {
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
+  const history = useHistory();
   useEffect(() => {
     apiInstance
       .get("/tags")
@@ -28,6 +31,8 @@ export default function Tags() {
     console.log({ e });
   };
 
+
+
   const columns = [
     { field: "id", headerName: "ID", width: 250 },
     {
@@ -46,6 +51,20 @@ export default function Tags() {
         params.row.tags.map((el) => moment(el.createdAt).format("LLL")),
       width: 250,
     },
+    {
+      field: "actions",
+      headerName: "Actions",
+      renderCell: (params) => (
+        <MoreButton
+          links={[
+            {
+              label: "Edit",
+              onClick: () => history.push("/app/tag/edit/" + params.row.id),
+            },
+          ]}
+        />
+      ),
+    },
   ];
   return (
     <>
@@ -59,7 +78,7 @@ export default function Tags() {
       {loading ? (
         <Loader />
       ) : (
-        <div style={{height:350}}>
+        <div style={{ height: 350 }}>
           <Table rows={data} columns={columns} />
         </div>
       )}

@@ -21,8 +21,31 @@ const getAllTags = async (req, res) => {
 
     }
 }
+const getTag = async (req, res) => {
+    const id = req.params.id
+    try {
+        const tag = await Tags.findOne({ _id: id })
+        res.json({ tag })
+    } catch (error) {
 
+    }
+}
+
+const deleteTag = async (req, res) => {
+    try {
+        const id = req.params.id
+        const t = req.params.tag
+        const tag = await Tags.findByIdAndUpdate({ _id: id }, {
+            $pull: { tags: { _id: t } }
+        }).exec()
+        res.send("Tag Delete Succesfully!");
+    } catch (error) {
+        res.status(500).send("Server Errorr!");
+    }
+}
 module.exports = {
     createTags,
-    getAllTags
+    getAllTags,
+    getTag,
+    deleteTag
 }

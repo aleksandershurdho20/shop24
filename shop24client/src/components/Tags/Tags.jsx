@@ -5,7 +5,7 @@ import Input from "common/Input";
 import { Button } from "@mui/material";
 import IconButton from '@mui/material/IconButton';
 import DeleteIcon from '@mui/icons-material/Delete';
-export default function Tags({ tags, handleChange, title,name,handleAddMore,handleRemove,handleSubmit }) {
+export default function Tags({ tags, handleChange, title,name,handleAddMore,handleRemove,handleSubmit,deleteFirstOne }) {
   return (
     <Grid
       container
@@ -21,8 +21,8 @@ export default function Tags({ tags, handleChange, title,name,handleAddMore,hand
                 <Grid container key={index}>
                   <Grid item>
                     <Input value={el.title} name={name} onChange={(e)=>handleChange(e,index)}/>
-                     {index !=0 && <IconButton aria-label="delete" size="large">
-                        <DeleteIcon fontSize="inherit" onClick={(i)=>handleRemove(i,index)} />
+                     {deleteFirstOne && <IconButton aria-label="delete" size="large">
+                        <DeleteIcon fontSize="inherit" onClick={()=>handleRemove(el._id,index)} />
                       </IconButton>}
                   </Grid>
                 </Grid>

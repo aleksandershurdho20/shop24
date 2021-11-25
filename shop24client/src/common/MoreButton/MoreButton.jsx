@@ -5,7 +5,7 @@ import Fade from '@mui/material/Fade';
 import IconButton from '@mui/material/IconButton';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
 
-export default function MoreButton() {
+export default function MoreButton({links}) {
     const [anchorEl, setAnchorEl] = useState(null);
   const open = Boolean(anchorEl);
   const handleClick = (event) => {
@@ -15,7 +15,7 @@ export default function MoreButton() {
     setAnchorEl(null);
   };
     return (
-        <div>
+        <div >
            <IconButton
         aria-label="more"
         id="long-button"
@@ -36,9 +36,8 @@ export default function MoreButton() {
         onClose={handleClose}
         TransitionComponent={Fade}
       >
-        <MenuItem onClick={handleClose}>Profile</MenuItem>
-        <MenuItem onClick={handleClose}>My account</MenuItem>
-        <MenuItem onClick={handleClose}>Logout</MenuItem>
+        {links.map((el,index) => <MenuItem onClick={el.onClick} key={index}>{el.label}</MenuItem>)}
+       
       </Menu>
         </div>
     )
