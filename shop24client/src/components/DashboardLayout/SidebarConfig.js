@@ -34,18 +34,13 @@ const sidebarConfig = [
         icon: getIcon(tags)
 
     },
+
     {
-        title: 'login',
-        path: '/login',
+        title: 'support',
+        path: '/app/support',
+        icon: getIcon(peopleFill)
+
     },
-    {
-        title: 'register',
-        path: '/register',
-    },
-    {
-        title: 'Not found',
-        path: '/404',
-    }
 ];
 
 export default sidebarConfig;
