@@ -20,6 +20,9 @@ cursor: pointer;
 margin-top: 1rem;
 margin-bottom: 1rem;
 padding: 15px 24px;
+border-left:4px solid #038787;
+border-top-left-radius: 0;
+border-bottom-left-radius: 0;
 
 & > *{
     flex : 1 1 0px;
