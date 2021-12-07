@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import Tags from "components/Tags";
 import { useParams } from "react-router-dom";
 import { apiInstance } from "utils/api";
+import toast from 'react-hot-toast';
 
 export default function UpdateTag() {
     const [tag, setTag] = useState([]);
@@ -26,19 +27,29 @@ export default function UpdateTag() {
         setTag(tags)
     }
     const handleRemove = (position,index) =>{
-        if(!position){
+        if( position == undefined){
             const tags = [...tag].splice(1,index)
            
             setTag(tags)
-
         }
         else{
             apiInstance.delete('/tag/'+id+'/tag/'+position).then(res =>{
-                const filteredTags = [...tag].filter(el=>el.id != position)
+                toast.success("Tag deleted succesfully!")
+
+                const filteredTags = [...tag].filter(el=>el._id != position)
                 setTag(filteredTags)
-            }).catch(err => console.log({err}))
+            }).catch(err => toast.error("Server errorr!"))
         }
+
     
+    }
+    const handleSubmit = (e) =>{
+        e.preventDefault()
+        apiInstance.put('/tag/' +id,tag).then((res => {
+            console.log({res})
+            toast.success("Tag created succesfully!")
+        })).catch(err =>toast.error("Server errorr!")
+        )
     }
     return (
         <>
@@ -50,6 +61,7 @@ export default function UpdateTag() {
                 handleRemove={handleRemove}
                 handleAddMore={handleAddMore}
                 deleteFirstOne={true}
+                handleSubmit={handleSubmit}
             />
         </>
     );

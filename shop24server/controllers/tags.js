@@ -34,18 +34,36 @@ const getTag = async (req, res) => {
 const deleteTag = async (req, res) => {
     try {
         const id = req.params.id
-        const t = req.params.tag
+        const t = req.params.title
         const tag = await Tags.findByIdAndUpdate({ _id: id }, {
             $pull: { tags: { _id: t } }
         }).exec()
-        res.send("Tag Delete Succesfully!");
+        res.json({ tag })
+
     } catch (error) {
+        console.log(error, 'erro')
         res.status(500).send("Server Errorr!");
+    }
+}
+const updateTag = async (req, res) => {
+    try {
+        const id = req.params.id
+        const tag = await Tags.findByIdAndUpdate({ _id: id }, {
+            $set: {
+                'tags': req.body
+            }
+        }, { upsert: true, new: true }).exec()
+        res.json({ tag })
+    } catch (error) {
+        console.log({ error })
+        res.status(500).send("Server Errorr!");
+
     }
 }
 module.exports = {
     createTags,
     getAllTags,
     getTag,
-    deleteTag
+    deleteTag,
+    updateTag
 }
