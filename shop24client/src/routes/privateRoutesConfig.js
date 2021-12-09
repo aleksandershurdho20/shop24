@@ -1,4 +1,5 @@
 import Dashboard from 'containers/Dashboard'
+import Orders from 'containers/Orders'
 import CreateProduct from 'containers/Products/CreateProduct'
 import Products from 'containers/Products/GetAllProducts'
 import Support from 'containers/Support'
@@ -34,6 +35,10 @@ export default [
     {
         path: "/app/support",
         component: Support
+    },
+    {
+        path: "/app/orders",
+        component: Orders
     }
 
 

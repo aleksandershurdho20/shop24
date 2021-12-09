@@ -6,6 +6,7 @@ import peopleFill from '@iconify/icons-eva/people-fill';
 import shoppingBagFill from '@iconify/icons-eva/shopping-bag-fill';
 import fileTextFill from '@iconify/icons-eva/file-text-fill';
 import tags from '@iconify/icons-eva/pricetags-fill';
+import cart from '@iconify/icons-eva/shopping-cart-fill';
 const getIcon = (name) => <Icon icon={name} width={22} height={22} />;
 
 const sidebarConfig = [
@@ -39,6 +40,13 @@ const sidebarConfig = [
         title: 'support',
         path: '/app/support',
         icon: getIcon(peopleFill)
+
+    },
+
+    {
+        title: 'orders',
+        path: '/app/orders',
+        icon: getIcon(cart)
 
     },
 ];

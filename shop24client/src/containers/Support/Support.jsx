@@ -28,7 +28,7 @@ export default function Support() {
               <span>{el.description}</span>
               <IssueWrapper>
                 <Tag label={el.issue_status ? "Opened" : "Closed"} />
-                <Tag label="okss" type={el.priority === "high" && "urgent"} />
+                <Tag label={el.priority} type={el.priority === "high" && "urgent"} />
                 <Description date>
                   {moment(el.createdAt).format("ll")}
                 </Description>

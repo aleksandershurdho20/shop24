@@ -14,6 +14,7 @@ const createSupport = async (req, res) => {
 
 const getAllSupportIssues = async (req, res) => {
     try {
+
         const supports = await Support.find({}).populate('user', '_id username').populate('vendor', '_id username').populate('product')
         res.json({ supports })
     } catch (error) {
