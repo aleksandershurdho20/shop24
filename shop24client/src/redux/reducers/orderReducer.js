@@ -11,7 +11,8 @@ const orderReducer = (state = initialState, action) => {
         case GET_ALL_ORDERS:
             return { ...state, orders: action.payload }
         case FILTER_SUCCESS:
-            return { ...state, orders: action.payload }
+            return { orders: action.payload }
+        // return { ...state, orders: action.payload }
 
         default: return state
     }
