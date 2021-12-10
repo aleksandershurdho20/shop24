@@ -9,8 +9,10 @@ export default function FilterOrders({ status, handleTabChange }) {
         value={status}
         onChange={handleTabChange}
         textColor="secondary"
-        indicatorColor="secondary"
+
+
         aria-label="secondary tabs example"
+        
       >
         <Tab value="pending" label="Pending" />
         <Tab value="canceled" label="Canceled" />

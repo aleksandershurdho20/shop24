@@ -41,10 +41,23 @@ export default function Orders() {
         }
     
       ];
+      const data = orders.filter(el=>el.status.toLowerCase() == status.toLocaleLowerCase()).map((el) => {
+        const { _id, ...rest } = el;
+        return {
+          ...rest,
+          id: el._id,
+        };
+      });
     return (
         <div>
             <FilterOrders handleTabChange={handleTabChange} status={status}/>
-            {orders.filter(el=>el.status.toLowerCase() == status.toLocaleLowerCase()).map(data=><p>{data.status}</p>)}
+          <div style={{ minHeight: 400, width: '100%' }}>
+          <Table
+            rows={data}
+            checkboxSelection
+            hideFooterSelectedRowCount
+            columns={columns}/>
+          </div>
         </div>
     )
 }
