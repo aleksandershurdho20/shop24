@@ -1,8 +1,15 @@
 const mongoose = require('mongoose')
 const { ObjectId } = mongoose.Schema
+
+const message = new mongoose.Schema({
+    text: {
+        type: String,
+
+    }
+}, { timestamps: true })
 const chatSchema = new mongoose.Schema({
     message: {
-        type: String
+        type: [message]
     },
     sender: {
         type: ObjectId,
