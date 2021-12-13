@@ -1,3 +1,4 @@
+import ViewSupport from 'components/Support/ViewSupport'
 import Dashboard from 'containers/Dashboard'
 import Orders from 'containers/Orders'
 import CreateProduct from 'containers/Products/CreateProduct'
@@ -35,6 +36,10 @@ export default [
     {
         path: "/app/support",
         component: Support
+    },
+    {
+        path: "/app/support/:id",
+        component: ViewSupport
     },
     {
         path: "/app/orders",

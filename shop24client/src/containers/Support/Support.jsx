@@ -11,14 +11,17 @@ import ChevronRightIcon from "@mui/icons-material/ChevronRight";
 import Tooltip from "@mui/material/Tooltip";
 import { apiInstance } from "utils/api";
 import moment from "moment";
+import { useHistory } from "react-router-dom";
 export default function Support() {
   const [supports, setSupports] = useState([]);
+  const history = useHistory();
   useEffect(() => {
     apiInstance
       .get("/supports")
       .then((res) => setSupports(res.data.supports))
       .catch((err) => console.log({ err }));
   }, []);
+  const handleOpen = path => history.push('/app/support/'+path)
   return (
     <>
       {supports.length > 0 ? (
@@ -33,8 +36,8 @@ export default function Support() {
                   {moment(el.createdAt).format("ll")}
                 </Description>
                 <Description>{el.title}</Description>
-                <IconWithButton aria-label="delete">
-                  <Tooltip title="Open" placement="top">
+                <IconWithButton >
+                  <Tooltip title="Open" placement="top" onClick={()=>handleOpen(el._id)}>
                     <ChevronRightIcon style={{ fontSize: 40 }} />
                   </Tooltip>
                 </IconWithButton>

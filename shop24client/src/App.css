@@ -1,0 +1,61 @@
+.css-1aquho2-MuiTabs-indicator{
+    background-color: teal !important;
+
+}
+.css-1a4cg4j-MuiButtonBase-root-MuiTab-root.Mui-selected{
+    color: teal !important;
+}
+.tab-container{
+    margin-bottom: 25px;
+}
+.msg-self .msg-box {
+    border-radius: 6px 0 0 6px;
+    background: #0e7a7a;
+    float: right;
+    color: #FFF;
+}
+.msg-self .user-img {
+    margin: 0 0 10px 10px;
+}
+.msg-self .msg {
+    text-align: right;
+    color: #FFF;
+
+}
+.msg-self .timestamp {
+    text-align: right;
+    color: #FFF;
+
+}
+
+.slide-down {
+    animation: slide-down 0.3s linear both;
+}
+.slide-up {
+    animation: slide-up 0.3s linear both;
+}
+@keyframes slide-down {
+   /* Set height to 'auto' after animation for spacing showing form-invalid feedback message */
+    0% {
+        visibility: hidden;
+        height: 0;
+   }
+    95% {
+        visibility: visible;
+        /* height: 250px; */
+   }
+    100% {
+        visibility: visible;
+        /* height: auto; */
+   }
+}
+@keyframes slide-up {
+    from {
+        visibility: visible;
+        /* height: 250px; */
+   }
+    to {
+        visibility: hidden;
+        /* height: 0; */
+   }
+}
